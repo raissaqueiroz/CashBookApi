@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashBook.Api", "CashBook.Api\CashBook.Api.csproj", "{30CE50F3-8AF8-4125-9033-4D106292C21B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashBook.Domain", "CashBook.Domain\CashBook.Domain.csproj", "{F82633E6-5F27-40BC-8A9B-6FDD6A8EBCB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashBook.Infra", "CashBook.Infra\CashBook.Infra.csproj", "{F75EF5FA-B769-4E3F-B8FD-6EA28694206E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashBook.Core", "CashBook.Core\CashBook.Core.csproj", "{F1401D9D-CA24-44C1-A07F-45EECC3AF02F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30CE50F3-8AF8-4125-9033-4D106292C21B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30CE50F3-8AF8-4125-9033-4D106292C21B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30CE50F3-8AF8-4125-9033-4D106292C21B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30CE50F3-8AF8-4125-9033-4D106292C21B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F82633E6-5F27-40BC-8A9B-6FDD6A8EBCB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F82633E6-5F27-40BC-8A9B-6FDD6A8EBCB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F82633E6-5F27-40BC-8A9B-6FDD6A8EBCB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F82633E6-5F27-40BC-8A9B-6FDD6A8EBCB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F75EF5FA-B769-4E3F-B8FD-6EA28694206E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F75EF5FA-B769-4E3F-B8FD-6EA28694206E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F75EF5FA-B769-4E3F-B8FD-6EA28694206E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F75EF5FA-B769-4E3F-B8FD-6EA28694206E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1401D9D-CA24-44C1-A07F-45EECC3AF02F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1401D9D-CA24-44C1-A07F-45EECC3AF02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1401D9D-CA24-44C1-A07F-45EECC3AF02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1401D9D-CA24-44C1-A07F-45EECC3AF02F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
