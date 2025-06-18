@@ -15,13 +15,9 @@ Após isso, rode `source ~/.zshrc`
 
 Para criar migrations:
 ```bash
-dotnet ef migrations add InitialCreate --startup-project ../CashBook.Api --output-dir Migrations
+dotnet ef migrations add NOMEMIGRATION --startup-project ../CashBook.Api --output-dir Migrations
 ``` 
 para aplicar a migration a sua base
 ```bash
 dotnet ef database update --startup-project ../CashBook.Api                     
-``` 
-Adiciona na solution de infrastrutura essa lib
-```
-dotnet add package Microsoft.EntityFrameworkCore.Design
 ```

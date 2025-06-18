@@ -7,15 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CashBook.Core\CashBook.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Validators\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="fluentvalidation" Version="11.11.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CashBook.Core\CashBook.Core.csproj" />
   </ItemGroup>
 
 </Project>

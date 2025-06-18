@@ -1,4 +1,5 @@
 using CashBook.Core.Enums;
+using CashBook.Core.Exceptions;
 using CashBook.Domain.Validators;
 
 namespace CashBook.Domain.Entities;
@@ -18,7 +19,7 @@ public class User : BaseEntity
 
     public string Name { get; private set; }
     public string Email { get; private set; }
-    public string Password { get; private set; }
+    public string Password { get; set; }
     public UserStatus Status { get; private set; } = UserStatus.Unconfirmed;
     
     public override bool Validate()
@@ -30,7 +31,7 @@ public class User : BaseEntity
             foreach (var error in validation.Errors)
                 _errors.Add(error.ErrorMessage);
 
-            throw new Exception("Invalid Fields");
+            throw new DomainException("Invalid Fields", _errors);
         }
 
         return true;

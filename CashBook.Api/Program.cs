@@ -1,3 +1,7 @@
+using CashBook.Application.Interfaces;
+using CashBook.Application.Mappings;
+using CashBook.Application.Services;
+using CashBook.Core.Services;
 using CashBook.Domain.Entities;
 using CashBook.Infra.Configuration;
 using CashBook.Infra.Contexts;
@@ -13,8 +17,11 @@ var connectionString = builder.Configuration.GetSection("ConnectionString").Valu
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPasswordHasher, PasswordHasherService>();
 builder.Services.AddManagerContext(connectionString ?? throw new InvalidOperationException("Connection string 'DefaultConnection' is not defined."));
 builder.Services.AddEntityConfiguration();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 
 // Add services to the container.

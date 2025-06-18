@@ -1,3 +1,6 @@
+using CashBook.Application.Dtos;
+using CashBook.Application.Interfaces;
+using CashBook.Core.Services;
 using CashBook.Domain.Entities;
 using CashBook.Infra.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -8,61 +11,60 @@ namespace CashBook.Api.Controllers;
 [Route("api/[controller]")]
 public class UsersController : ControllerBase
 {
-     [HttpGet]
-    public async Task<ActionResult<IEnumerable<User>>> GetAll([FromServices] IUserRepository userRepository)
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<UserReadDto>>> GetAll([FromServices] IUserService userService)
     {
-        var users = await userRepository.GetAll();
+        var users = await userService.Get();
         return Ok(users);
     }
 
     [HttpGet("{id:guid}")]
-    public async Task<ActionResult<User>> GetById(Guid id, [FromServices] IUserRepository userRepository)
+    public async Task<ActionResult<UserReadDto>> GetById(Guid id, [FromServices] IUserService userService)
     {
-        var user = await userRepository.GetById(id);
-        if (user is null) return NotFound();
+        var user = await userService.Get(id);
+        
         return Ok(user);
     }
 
     [HttpGet("search/email")]
-    public async Task<ActionResult<IEnumerable<User>>> SearchByEmail([FromQuery] string email, [FromServices] IUserRepository userRepository)
+    public async Task<ActionResult<IEnumerable<User>>> SearchByEmail([FromQuery] string email, [FromServices] IUserService userService)
     {
-        var users = await userRepository.SearchByEmail(email);
+        var users = await userService.SearchByEmail(email);
         return Ok(users);
     }
 
     [HttpGet("search/name")]
-    public async Task<ActionResult<IEnumerable<User>>> SearchByName([FromQuery] string name, [FromServices] IUserRepository userRepository)
+    public async Task<ActionResult<IEnumerable<User>>> SearchByName([FromQuery] string name, [FromServices] IUserService userService)
     {
-        var users = await userRepository.SearchByName(name);
+        var users = await userService.SearchByName(name);
         return Ok(users);
     }
 
     [HttpPost]
-    public async Task<ActionResult<User>> Create(User user, [FromServices] IUserRepository userRepository)
+    public async Task<ActionResult<User>> Create(
+        UserCreateDto user, 
+        [FromServices] IUserService userService
+    )
     {
-        await userRepository.Create(user);
-        return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+        await userService.Create(user);
+        
+        return Created();
     }
 
     [HttpPut("{id:guid}")]
-    public async Task<IActionResult> Update(Guid id, User user, [FromServices] IUserRepository userRepository)
+    public async Task<IActionResult> Update(Guid id, UserUpdateDto user, [FromServices] IUserService userService)
     {
-        if (id != user.Id) return BadRequest("ID da URL difere do corpo da requisição.");
+        if (id != user.Id) return BadRequest("Usuário Inválido!");
 
-        var existing = await userRepository.GetById(id);
-        if (existing is null) return NotFound();
-
-        await userRepository.Update(user);
+        await userService.Update(user);
+        
         return NoContent();
     }
 
     [HttpDelete("{id:guid}")]
-    public async Task<IActionResult> Delete(Guid id, [FromServices] IUserRepository userRepository)
+    public async Task<IActionResult> Delete(Guid id, [FromServices] IUserService userService)
     {
-        var existing = await userRepository.GetById(id);
-        if (existing is null) return NotFound();
-
-        await userRepository.Remove(existing.Id);
+        await userService.Remove(id);
         return NoContent();
     }
 }
