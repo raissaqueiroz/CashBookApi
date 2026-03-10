@@ -1,36 +1,55 @@
-# Build Folders
-bin/
-obj/
+## Build output
+**/bin/
+**/obj/
+artifacts/
 
-# Visual Studio folders
+## NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+.nuget/
+
+## Visual Studio
 .vs/
-
-# User-specific files
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
+*.rsuser
+*.vssscc
+*.vspscc
 
-# Rider
+## Visual Studio Code
+.vscode/
+
+## JetBrains Rider
 .idea/
+*.sln.iml
 
-# NuGet packages
-*.nupkg
-packages/
+## Test results & coverage
+TestResults/
+coverage/
+*.trx
+*.coveragexml
+*.coverage
 
-# DotNet CLI
-project.lock.json
-project.fragment.lock.json
-artifacts/
-
-# Migrations are committed!
-
-# Secrets (you may want to keep appsettings.json but exclude secrets)
+## Secrets & environment-specific settings
 appsettings.*.json
+!appsettings.Development.json
+secrets.json
+*.pfx
+*.p12
 
-# Log files
+## Docker
+.dockerignore
+
+## OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Logs
 *.log
-
-# Other
-*.vsix
-*.vscode/
+logs/
