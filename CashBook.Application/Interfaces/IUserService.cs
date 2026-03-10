@@ -10,6 +10,6 @@ public interface IUserService
     Task<UserReadDto> Get(Guid id);
     Task<IEnumerable<UserReadDto>> SearchByEmail(string email);
     Task<IEnumerable<UserReadDto>> SearchByName(string name);
-    Task<IEnumerable<UserReadDto>> GetByEmailAndPassword(string email, string password);
+    Task<UserReadDto?> GetByEmailAndPassword(string email, string password);
     Task Remove(Guid id);
 }

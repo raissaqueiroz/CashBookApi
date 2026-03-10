@@ -83,11 +83,8 @@ public class UserService(IUserRepository userRepository, IPasswordHasher passwor
         return mapper.Map<IEnumerable<UserReadDto>>(usersExists);
     }
 
-    //TODO: Autenticação do Usuário
-    public Task<IEnumerable<UserReadDto>> GetByEmailAndPassword(string email, string password)
-    {
-        throw new NotImplementedException();
-    }
+    public Task<UserReadDto?> GetByEmailAndPassword(string email, string password)
+        => throw new NotImplementedException();
 
     public async Task Remove(Guid id)
     {
