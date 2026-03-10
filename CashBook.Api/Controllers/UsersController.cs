@@ -1,14 +1,14 @@
 using CashBook.Application.Dtos;
 using CashBook.Application.Interfaces;
-using CashBook.Core.Services;
 using CashBook.Domain.Entities;
-using CashBook.Infra.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CashBook.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class UsersController : ControllerBase
 {
     [HttpGet]
@@ -41,6 +41,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
+    [AllowAnonymous]
     public async Task<ActionResult<User>> Create(
         UserCreateDto user, 
         [FromServices] IUserService userService
